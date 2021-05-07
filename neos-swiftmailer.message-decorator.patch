@@ -4,9 +4,9 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
 diff --git a/Classes/Message.php b/Classes/Message.php
---- a/Classes/Message.php	(date 1619640694532)
-+++ b/Classes/Message.php	(date 1619640694532)
-@@ -21,8 +21,46 @@
+^--- a/Classes/Message.php	(date 1620418084798)
++++ b/Classes/Message.php	(date 1620418084798)
+@@ -21,8 +21,54 @@
   *
   * @Flow\Scope("prototype")
   */
@@ -37,13 +37,21 @@ diff --git a/Classes/Message.php b/Classes/Message.php
 +
 +	/**
 +	 * Pass all calls to $this->message
-+	 * 
++	 *
 +	 * @param string $method
 +	 * @param array $args
 +	 * @return false|mixed
 +	 */
 +	public function __call($method, $args) {
-+		return call_user_func_array(array($this->message, $method), $args);
++
++		$returnValue = call_user_func_array(array($this->message, $method), $args);
++
++		// Enable method chaining (new Message())->setTo(...)->setFrom(...)
++		if ($returnValue === $this->message) {
++			return $this;
++		}
++
++		return $returnValue;
 +	}
 +
 +	/**
@@ -54,7 +62,7 @@ diff --git a/Classes/Message.php b/Classes/Message.php
      /**
       * @Flow\Inject
       * @var \Neos\SwiftMailer\MailerInterface
-@@ -52,7 +90,7 @@
+@@ -52,7 +98,7 @@
      {
          $this->sent = true;
          $this->failedRecipients = [];
