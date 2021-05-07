@@ -5,6 +5,14 @@ FormatD.Mailer.QueueAdaptor
 This package changes the mail delivery in Neos (`neos/swiftmailer`) to asynchronously send mails via a queue.
 The idea is to make it work as a plug-and-play replacement for every mail generated in the system.
 
+Disclaimer
+----------
+
+This Package is just a proof of concept and needs a patch for `neos/swiftmailer` to work
+(contained in this packageand applied automatically by `cweagans/composer-patches`).
+The patch is neccessary because the Message object of `neos/swiftmailer` cannot be serialized. 
+The patch changes the implementation from inheritance to a decorator pattern.
+
 Setup
 ----------
 
