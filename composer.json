@@ -1,6 +1,7 @@
 {
   "description": "Mail Queue for Neos.SwiftMailer",
   "type": "neos-package",
+  "license": "MIT",
   "name": "formatd/mailer-queueadaptor",
   "require": {
     "neos/flow": "*",
