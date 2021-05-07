@@ -1,0 +1,27 @@
+{
+  "description": "Mail Queue for Neos.SwiftMailer",
+  "type": "neos-package",
+  "name": "formatd/mailer-queueadaptor",
+  "require": {
+    "neos/flow": "*",
+    "formatd/mailer": "~v1.1.3",
+    "flowpack/jobqueue-common": "~v3.1.0",
+    "cweagans/composer-patches": "^1.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "FormatD\\Mailer\\QueueAdaptor\\": "Classes/"
+    }
+  },
+  "extra": {
+    "patches": {
+      "neos/swiftmailer": {
+        "Change: Change message object to decorator pattern": "Packages/Application/FormatD.Mailer.QueueAdaptor/neos-swiftmailer.message-decorator.patch"
+      }
+    },
+    "composer-exit-on-patch-failure": true,
+    "neos": {
+      "package-key": "FormatD.Mailer.QueueAdaptor"
+    }
+  }
+}

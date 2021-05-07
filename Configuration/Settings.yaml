@@ -1,0 +1,17 @@
+Flowpack:
+  JobQueue:
+    Common:
+      queues:
+        'fdmailer-mail-queue':
+          className: 'Flowpack\JobQueue\Doctrine\Queue\DoctrineQueue'
+          executeIsolated: true
+          options:
+            defaultTimeout: 50
+          releaseOptions:
+            priority: 512
+            delay: 120
+
+FormatD:
+  Mailer:
+    QueueAdaptor:
+      enableAsynchronousMails: true
