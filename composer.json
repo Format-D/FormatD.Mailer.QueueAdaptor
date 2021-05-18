@@ -5,7 +5,7 @@
   "name": "formatd/mailer-queueadaptor",
   "require": {
     "neos/flow": "*",
-    "formatd/mailer": "~v1.1.3",
+    "formatd/mailer": "~v1.1.4",
     "flowpack/jobqueue-common": "~v3.1.0",
     "cweagans/composer-patches": "^1.7"
   },

@@ -1,0 +1,5 @@
+
+FormatD_Mailer_QueueAdaptor_MailSerializationCache:
+  frontend: Neos\Cache\Frontend\StringFrontend
+  backend: Neos\Cache\Backend\FileBackend
+  persistent: true

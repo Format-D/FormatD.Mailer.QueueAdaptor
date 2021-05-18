@@ -1,0 +1,10 @@
+
+'FormatD\Mailer\QueueAdaptor\Job\MailJob':
+  properties:
+    mailSerializationCache:
+      object:
+        factoryObjectName: 'Neos\Flow\Cache\CacheManager'
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: FormatD_Mailer_QueueAdaptor_MailSerializationCache

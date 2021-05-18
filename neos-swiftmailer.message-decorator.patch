@@ -32,7 +32,7 @@ diff --git a/Classes/Message.php b/Classes/Message.php
 +	 * @return string[]
 +	 */
 +	public function __sleep() {
-+		return ['failedRecipients', 'sent', 'message'];
++		return ['failedRecipients', 'sent', 'message', 'intercepted'];
 +	}
 +
 +	/**
@@ -69,5 +69,5 @@ diff --git a/Classes/Message.php b/Classes/Message.php
 -        return $this->mailer->send($this, $this->failedRecipients);
 +        return $this->mailer->send($this->message, $this->failedRecipients);
      }
- 
+
      /**

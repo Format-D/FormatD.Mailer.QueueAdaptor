@@ -9,7 +9,7 @@ Disclaimer
 ----------
 
 This Package is just a proof of concept and needs a patch for `neos/swiftmailer` to work
-(contained in this packageand applied automatically by `cweagans/composer-patches`).
+(contained in this package and applied automatically by `cweagans/composer-patches`).
 The patch is neccessary because the Message object of `neos/swiftmailer` cannot be serialized. 
 The patch changes the implementation from inheritance to a decorator pattern.
 
@@ -50,3 +50,4 @@ To send the queued mails run a worker cronjob on CLI:
 Now test if it is working:
 
 	./flow email:send --body "Hello World" from@example.com to@example.com "My Test Mail"
+

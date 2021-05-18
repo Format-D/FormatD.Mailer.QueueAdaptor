@@ -14,6 +14,7 @@ use Neos\SwiftMailer\Message;
 
 /**
  * @Flow\Aspect
+ * @Flow\Introduce("class(Neos\SwiftMailer\Message)", traitName="FormatD\Mailer\QueueAdaptor\Traits\QueueNameTrait")
  */
 class QueuingAspect {
 
@@ -51,7 +52,7 @@ class QueuingAspect {
 		/** @var Message $email */
 		$email = $joinPoint->getProxy();
 		$job = new MailJob($email);
-		$this->jobManager->queue('fdmailer-mail-queue', $job);
+		$this->jobManager->queue($email->getQueueName() ? $email->getQueueName() : 'fdmailer-mail-queue', $job);
 
 		// Neos\SwiftMailer\Message->send() should return the number of recipients who were accepted for delivery
 		// We dont know that until mail is execured by queue so we assume every recipient was accepted
